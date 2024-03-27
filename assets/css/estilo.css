@@ -1,7 +1,87 @@
 body {
     background-color: #313131;
+    font-family: 'Poppins', sans-serif;
+    color: #f4f4f4;
 }
 
-h1 {
-    color: aliceblue;
+.capa {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
+
+.capa__foto {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 50%;
+    border: 6px #4d4d4d solid;
+}
+
+.capa__nome {
+    font-family: 'Damion', cursive;
+    font-size: 52px;
+    font-weight: 400;
+    color: #e68298;
+    margin: 16px 0;
+}
+
+.capa__descricao {
+    font-size: 16px;
+    font-weight: 400;
+    color: #f4f4f4;
+    margin: 0;
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+}
+
+.subtitulo {
+    color: #e68298;
+    font-family: 'Damion', cursive;
+    font-size: 36px;
+    font-weight: 400;
+    text-align: center;
+    padding: 8px;
+    margin: 16px 0;
+    box-sizing: 100px;
+    border-radius: 3px;
+}
+
+.receita {
+    position: relative;  
+    left: 30px;
+    display:contents;
+    
+}
+
+.receita__lasanha {
+    float: left;
+    padding: 8px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 24px auto;
+    text-align: left;
+    flex-direction:row;
+    align-items: left;
+}
+
+.receita__imagem_lasanha{
+    height: 200px;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10%;
+    border: 6px #4d4d4d solid;
+}
+
+.receita__titulo_lasanha {
+
+}
+
+.receita__descricao_lasanha {
+
+}
+
+
+
