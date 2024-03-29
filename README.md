@@ -1,4 +1,4 @@
-![unnamed](https://github.com/karenribeiro7/DevWebI-1-Unidade/assets/imagens/ifpe.jpg)
+![unnamed](https://github.com/karenribeiro7/DevWebI-1-Unidade/blob/main/assets/imagens/ifpe.jpg)
 
 # Projeto 1ª Unidade - Desenvolvimento Web I - Análise e Desenvolvimento de Sistemas - IFPE Paulista
 
