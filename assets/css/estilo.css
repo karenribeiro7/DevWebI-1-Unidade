@@ -84,3 +84,31 @@ body {
     gap: 20px;
 }
 
+.header {
+    background-color: #e68298;
+    font-size: 14px;
+    font-weight: 400;
+    color: #313131;
+    display: flex;
+    align-items: right;
+    
+}
+
+.footer {
+    background-color: #e68298;
+    font-size: 14px;
+    font-weight: 400;
+    color: #313131;
+    display: flex;
+    align-items: center;
+    
+}
+
+.header__link {
+}
+
+@keyframe pulsar 
+.icone__footer {
+}
+    
+
