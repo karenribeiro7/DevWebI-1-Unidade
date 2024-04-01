@@ -84,17 +84,17 @@ body {
     gap: 20px;
 }
 
-.header {
+header {
     background-color: #e68298;
     font-size: 14px;
     font-weight: 400;
     color: #313131;
     display: flex;
-    align-items: right;
+    text-align: right;
     
 }
 
-.footer {
+footer {
     background-color: #e68298;
     font-size: 14px;
     font-weight: 400;
@@ -105,10 +105,13 @@ body {
 }
 
 .header__link {
+    text-align: end;
+    align-items: end;
 }
 
 @keyframe pulsar 
 .icone__footer {
 }
     
+
 
