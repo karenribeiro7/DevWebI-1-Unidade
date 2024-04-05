@@ -1,7 +1,9 @@
 body {
     background-color: #f8d8a5;
+    min-height: 100vh;
     font-family: 'Poppins', sans-serif;
     color: #635a49;
+    position: relative;
 }
 
 .navbar {
@@ -41,6 +43,7 @@ hr {
     width: 100%;
     max-width: 150px;
     border-radius: 50%;
+    border: 1px #313131 solid;
 }
 
 .capa__nome {
@@ -52,6 +55,7 @@ hr {
     font-weight: 400;
     color: #91be95;
     margin: 16px 0;
+    -webkit-text-stroke: 1px #313131;
 }
 
 .capa__descricao {
