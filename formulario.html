@@ -25,16 +25,29 @@
     </header><br>
     <main class="main">
         <div class="capa">
-            <img class="capa__foto" src="assets/imagens/receitas.jpg" alt="Uma tabua de comida com o nome Receita no meio e varios vegetais ao redor">
+            <img class="capa__foto" src="assets/imagens/receitas.jpg" alt="Logo das Receitas do Grupinho">
             <h1 class="capa__nome">Receitas do Grupinho   <img class="icone icone--texto" src="assets/icones/coracao.svg" alt="icone de coracao"></h1>
             <p class="capa__descricao">
-                Aqui separamos algumas de nossas receitas preferidas! Preparados para ficar com água na boca?
+                Deseja colocar sua receitar favorita aqui? Preencha o formulário abaixo e nos envie!
             </p>
         </div>
         <br>
         <hr>
-        <h2 class="subtitulo">Nossas Receitas</h2>
-        <p>AQUI VAI O FORMULÁRIO</p> 
+        <h2 class="subtitulo">Envie sua receita!</h2>
+        <form class="forms" method="post" action="home.html">
+            <fieldset>
+            <label for="nome-receita">Nome da Receita:</label>
+            <input maxlength="20" minlength="3" id="nome-receita" name="nome-receita"><br>
+            <label for="imagem">Imagem da Receita:</label>
+            <input type="url" id="imagem" name="imagem"><br>
+            <label for="link">Fonte da Receita:</label>
+            <input type="url" id="link" name="link"><br><br>
+            <label for="receita">Receita:</label>
+            <textarea id="receita" name="receita" rows="5" cols="33"></textarea></textarea><br>
+            <input class="bt" type="submit" value="Enviar">
+            </fieldset>
+            </form> 
+            <br>
         </div>
     </main>   
 </body>
