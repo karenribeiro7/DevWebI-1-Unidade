@@ -1,4 +1,9 @@
-body {
+* { /* tirar as margens padrao do documento */    
+    margin: 0;
+    padding: 0;
+}
+
+body {/* configurações do body, definindo cor de fundo, tipo e cor da fonte, posição do texto e altura minima para que o corpo fique da altura da janela do dispositivo */
     background-color: #f8d8a5;
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
@@ -6,23 +11,22 @@ body {
     position: relative;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {/* configuração do body para dispositivo maiores, com no minimo 768px de tamanho */
     body {
       font-size: 16px; 
     }
   }
   
 
-.navbar {
+.navbar {/* configuração de toda barra de navegação, colocando na disposição flex, alinhando ao centro, mudando a cor de fundo e colocando sombra */
     background-color: #91be95;
     display: flex;
     text-align: center;
     justify-content: center;
-    overflow: hidden;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.navbar__link {
+.navbar__link {/* configurações dos links na barra de navegação, colocando em linha, definindo padding e margens e mudando a cor da fonte  */
     display: inline;
     text-decoration: none;
     padding-right: 8px;
@@ -31,20 +35,21 @@ body {
     color: #313131;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {/* configurações do header para dispositivos com tamanho máximo de 768px */
     header {
       padding: 10px;
     }
 }
 
-hr {
+hr {/* configurações da linha que separa o bloco de capa do bloco de receitas, definindo tamanho, cor, margem e sombra */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     height: 1px;
     width: 700px;
     background: #313131;
+    margin: auto;
 }
 
-.capa {
+.capa {/* configurações do bloco de capa, definindo tamanho, alinhamento ao centro e colocando como coluna a direção */
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -52,14 +57,14 @@ hr {
 
 }
 
-.capa__foto {
+.capa__foto {/* configurações da foto de capa do site, definindo tamanho maximo, uma borda e sua cor e largura */
     width: 100%;
     max-width: 150px;
     border-radius: 50%;
-    border: 1px #313131 solid;
+    border: 2px #313131 solid;
 }
 
-.capa__nome {
+.capa__nome {/* configurações do titulo principal do site, definindo tipo e tamanho da fonte, alinhamento ao centro, cor da fonte, margem e uma borda para o texto */
     font-family: 'Damion', cursive;
     text-align: center;
     width: 100%;
@@ -71,7 +76,7 @@ hr {
     -webkit-text-stroke: 1px #313131;
 }
 
-.capa__descricao {
+.capa__descricao {/* configurações do texto de descrição da capa do site, tamanho e cor da fonte, margem, tamanho máximo e alinhado ao centro */
     font-size: 16px;
     font-weight: 400;
     color: #313131;
@@ -81,7 +86,7 @@ hr {
     text-align: center;
 }
 
-.subtitulo {
+.subtitulo {/* definindo a cor, tipo e tamanho da fonte, alinhamento ao centro, padding, margem do subtitulo Nossas Receitas  */
     color:#91be95;
     font-family: 'Damion', cursive;
     font-size: 36px;
@@ -90,23 +95,21 @@ hr {
     padding: 8px;
     margin: 16px 0;
     box-sizing: 100px;
-    border-radius: 3px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {/* definindo o padding da main para dispositivos com tamanho até 768px */
     main {
         padding: 10px; 
     }
 }
-.receita {
+.receita {/* definindo a cor de fundo do bloco das receitas, borda, padding dos elementos, margem e um pouco de sombra no bloco */
     background-color: #ffb294;
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.receita img {
-    border-radius: 50%;
+.receita img {/* definindo tamanho e cor da borda, margens e tamanho máximo */
     border: 6px #3a3a3a solid;
     width: 350px;
     display: block; 
@@ -115,22 +118,32 @@ hr {
     max-width: 100%;
     border-radius: 5px;
 }
-.receita h2 {
+.receita h2 {/* definindo a margem, tamanho da fonte, alinhamento e cor do texto do nome de cada receita */
+    margin-top: 5px;
     font-size: 24px;
     margin-bottom: 10px;
+    text-align: center;
+    color: #313131;
 }
-.receita p {
+.receita p {/* definindo alinhamento do texto, tamanho e altura da fonte, definindo as margens do paragrafo com frase dentro de cada receita */
     text-align: left;
     font-size: 16px;
     line-height: 1.5;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
-.receita-colunas {
-    display: flexbox;
-    justify-content:space-around;
-    gap: 20px;
+.receitas-area {/* definindo tamanho, margem e padding das colunas de receitas */
+    width: 700px;
+    margin: auto;
+    padding: 20px;
 }
 
-footer {
+.receita li {/* colocando a lista para dentro e definindo a distancia entre os elementos */
+    list-style-position: inside;
+    line-height: 30px;
+}
+
+footer {/* configuração do footer, alterando a cor da fonte, o tamanho máximo e a altura, mudando a cor de fundo, alinhando elementos ao centro, incluindo no tamanho o padding do documento, mantendo sua posição absoluta */
     color: #313131;
     width: 100%;
     height: 30px;
@@ -139,33 +152,53 @@ footer {
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    overflow: hidden;
     position: absolute;    
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {/* configurações do footer para dispositivos menores (Até 768px) */
     footer {
         padding: 5px 10px; 
     }
 }
 
-.icone--texto {
+.icone--texto {/* configurações do favicon de coração, definindo a margem e a animação de pulsar */
     margin: 0 8px;
     animation: pulsar 1s infinite alternate;
 }
 
-.forms {
+.formulario__area { /* configuração da area do formulario, definindo a cor de fundo, tamanho, alinhamento ao centro e margem */
     display: flex;
-    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+}
+
+.forms {/* configuração do formulario, deixando o display flex, colocando uma borda, alinhando os elementos e conteudos ao centro, colocando a direção como coluna e adicionando uma margem */
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 20px;
-    
+    margin-bottom: 20px;  
 }
 
-.bt {
-    background-color: #ffb294;
+label {/* configuração do label do formulario, definindo a margem, tamanho e cor da fonte */
+    font-size: 16px;
+    color: #313131;
+}
+
+form input, form textarea {/* configuração dos inputs e textarea do formulario, definindo a margem, padding, largura, borda, borda arredondada e cor da fonte */
+    padding: 3px;
+    width: 300px;
+    border: 1px solid #313131;
+    border-radius: 5px; 
+}
+
+label, input, textarea {/* configuração dos elementos do formulario, definindo a margem */
+    margin: 10px;
+}
+
+
+.bt {/* configurações do botão de enviar no formulario, mudando a cor de fundo e da fonte, alinhando o texto ao centro, mantendo o tipo da caixa do botão como bloco em linha, mudando o cursor ao passar em cima do botão, fazer a borda um poco arredondada e um pouco de sombra, definindo um tamanho mínimo */
+    background-color: #ffb294; 
     border: none;
     color: #313131;
     padding: 10px 20px;
@@ -173,7 +206,7 @@ footer {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
+    margin: 10px;
     cursor: pointer;
     border-radius: 5px;
     min-width: auto;
@@ -181,7 +214,26 @@ footer {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes pulsar {
+.bt:hover {/* configuração do botão de enviar no formulario ao passar o mouse em cima, mudando a cor de fundo e da fonte */
+    background-color: #f3a282;
+    color: #313131;
+}
+
+.nome-receita {
+    padding: 10px;
+
+}
+
+.fomulario__sucesso {
+    color: #313131;
+    font-size: 16px;
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+
+}
+
+@keyframes pulsar {/* fazer o favicon do coração realizar a animação de pulsar, indo da escala menor até a maior */
     0% {
         transform: scale(.8);
     }
