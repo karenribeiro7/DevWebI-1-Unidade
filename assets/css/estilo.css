@@ -6,6 +6,13 @@ body {
     position: relative;
 }
 
+@media screen and (min-width: 768px) {
+    body {
+      font-size: 16px; 
+    }
+  }
+  
+
 .navbar {
     background-color: #91be95;
     display: flex;
@@ -22,6 +29,12 @@ body {
     margin-left: auto;
     margin-right: auto;
     color: #313131;
+}
+
+@media screen and (max-width: 768px) {
+    header {
+      padding: 10px;
+    }
 }
 
 hr {
@@ -80,6 +93,11 @@ hr {
     border-radius: 3px;
 }
 
+@media screen and (max-width: 768px) {
+    main {
+        padding: 10px; 
+    }
+}
 .receita {
     background-color: #ffb294;
     border-radius: 10px;
@@ -121,11 +139,16 @@ footer {
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    flex-shrink: 0;
     overflow: hidden;
-    
+    position: absolute;    
 }
- 
+
+@media screen and (max-width: 768px) {
+    footer {
+        padding: 5px 10px; 
+    }
+}
+
 .icone--texto {
     margin: 0 8px;
     animation: pulsar 1s infinite alternate;
@@ -138,6 +161,7 @@ footer {
     align-items: center;
     justify-content: center;
     margin: 20px;
+    
 }
 
 .bt {
@@ -155,8 +179,6 @@ footer {
     min-width: auto;
     width: auto;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-
 }
 
 @keyframes pulsar {
