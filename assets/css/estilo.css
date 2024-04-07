@@ -139,6 +139,7 @@ hr {/* configurações da linha que separa o bloco de capa do bloco de receitas,
 .receita img {/* definindo tamanho e cor da borda, margens e tamanho máximo */
     border: 6px #3a3a3a solid;
     width: 350px;
+    height: 195px;
     display: block; 
     margin-left: auto; 
     margin-right: auto; 
