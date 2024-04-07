@@ -149,6 +149,7 @@ hr {/* configurações da linha que separa o bloco de capa do bloco de receitas,
 @media screen and (max-width: 768px) {
     .receita img {
         width: 50%;
+        height: 50%;
         justify-content: center;
         align-items: center;
         text-align: center;
