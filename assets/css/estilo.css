@@ -45,12 +45,12 @@ body {/* configurações do body, definindo cor de fundo, tipo e cor da fonte, p
       height: 90%;
     }
 
-    .navbar__link {
+    .navbar__link {/* configurações dos links na barra de navegação para dispositivos com tamanho máximo de 768px */
         margin-top: 2px;
         padding-right: 5px;
         padding-top: 2px;
-        font-size: 80%;
-        overflow: hidden;
+        font-size: 95%;
+        overflow: scroll;
     }
 }
 
@@ -146,7 +146,7 @@ hr {/* configurações da linha que separa o bloco de capa do bloco de receitas,
     max-width: 100%;
     border-radius: 5px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {/* definindo o tamanho da imagem para dispositivos com tamanho máximo de 768px */
     .receita img {
         width: 50%;
         height: 50%;
@@ -176,7 +176,7 @@ hr {/* configurações da linha que separa o bloco de capa do bloco de receitas,
     padding: 20px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) { /* definindo o tamanho da coluna de receitas para dispositivos com tamanho máximo de 768px */
     .receitas-area {
         max-width: 95%;
         height: auto;
@@ -210,7 +210,7 @@ footer {/* configuração do footer, alterando a cor da fonte, o tamanho máximo
 @media screen and (max-width: 768px) {/* configurações do footer para dispositivos menores (Até 768px) */
     footer {
         text-overflow: ellipsis ;
-        font-size: 50%;
+        font-size: 80%;
         margin-top: 20px;
         bottom: 0;
         padding-top: 5px;
@@ -228,7 +228,7 @@ footer {/* configuração do footer, alterando a cor da fonte, o tamanho máximo
     padding: auto;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) { /* configuração da area do formulario para dispositivos com tamanho máximo de 768px */
     .formulario__area {
         width: 50%;
         margin: 0 auto;
@@ -244,7 +244,7 @@ footer {/* configuração do footer, alterando a cor da fonte, o tamanho máximo
     margin-bottom: 20px;  
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {/* configuração do formulario para dispositivos com tamanho máximo de 768px */
     .forms {
         max-width: 80%;
         margin: 0 auto;
@@ -292,12 +292,12 @@ label, input, textarea {/* configuração dos elementos do formulario, definindo
     color: #313131;
 }
 
-.nome-receita {
+.nome-receita {/* configuração do nome da receita, definindo seu padding */
     padding: 10px;
 
 }
 
-.fomulario__sucesso {
+.fomulario__sucesso {/* configuração do formulario de sucesso, definindo a cor de fundo, cor da fonte, tamanho e alinhamento do texto, margem e padding */
     color: #313131;
     font-size: 16px;
     text-align: center;
