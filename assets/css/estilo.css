@@ -15,8 +15,7 @@ body {/* configurações do body, definindo cor de fundo, tipo e cor da fonte, p
     body {
       font-size: 16px; 
     }
-  }
-  
+}
 
 .navbar {/* configuração de toda barra de navegação, colocando na disposição flex, alinhando ao centro, mudando a cor de fundo e colocando sombra */
     background-color: #91be95;
@@ -24,12 +23,15 @@ body {/* configurações do body, definindo cor de fundo, tipo e cor da fonte, p
     text-align: center;
     justify-content: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 3px;
+    height: 30px;
 }
 
 .navbar__link {/* configurações dos links na barra de navegação, colocando em linha, definindo padding e margens e mudando a cor da fonte  */
     display: inline;
     text-decoration: none;
     padding-right: 8px;
+    padding-top: 2px;
     margin-left: auto;
     margin-right: auto;
     color: #313131;
@@ -37,7 +39,17 @@ body {/* configurações do body, definindo cor de fundo, tipo e cor da fonte, p
 
 @media screen and (max-width: 768px) {/* configurações do header para dispositivos com tamanho máximo de 768px */
     header {
-      padding: 10px;
+      margin-left: auto;
+      font-size: 90%;
+      height: 90%;
+    }
+
+    .navbar__link {
+        margin-top: 2px;
+        padding-right: 5px;
+        padding-top: 2px;
+        font-size: 80%;
+        overflow: hidden;
     }
 }
 
@@ -47,6 +59,12 @@ hr {/* configurações da linha que separa o bloco de capa do bloco de receitas,
     width: 700px;
     background: #313131;
     margin: auto;
+}
+
+@media screen and (max-width: 768px) {/* configurações da linha para dispositivos com tamanho máximo de 768px */
+    hr {
+        width: 95%;
+    }
 }
 
 .capa {/* configurações do bloco de capa, definindo tamanho, alinhamento ao centro e colocando como coluna a direção */
@@ -86,6 +104,12 @@ hr {/* configurações da linha que separa o bloco de capa do bloco de receitas,
     text-align: center;
 }
 
+@media screen and (max-width: 768px) {/* configurações da descrição para dispositivos com tamanho máximo de 768px */
+    .capa__descricao {
+        font-size: 95%;
+    }
+}
+
 .subtitulo {/* definindo a cor, tipo e tamanho da fonte, alinhamento ao centro, padding, margem do subtitulo Nossas Receitas  */
     color:#91be95;
     font-family: 'Damion', cursive;
@@ -97,9 +121,11 @@ hr {/* configurações da linha que separa o bloco de capa do bloco de receitas,
     box-sizing: 100px;
 }
 
-@media screen and (max-width: 768px) {/* definindo o padding da main para dispositivos com tamanho até 768px */
+@media screen and (max-width: 768px) {/* definindo o padding e margem da main para dispositivos com tamanho até 768px */
     main {
         padding: 10px; 
+        margin: auto;
+        overflow: hidden;
     }
 }
 .receita {/* definindo a cor de fundo do bloco das receitas, borda, padding dos elementos, margem e um pouco de sombra no bloco */
@@ -118,6 +144,15 @@ hr {/* configurações da linha que separa o bloco de capa do bloco de receitas,
     max-width: 100%;
     border-radius: 5px;
 }
+@media screen and (max-width: 768px) {
+    .receita img {
+        width: 50%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+}
+
 .receita h2 {/* definindo a margem, tamanho da fonte, alinhamento e cor do texto do nome de cada receita */
     margin-top: 5px;
     font-size: 24px;
@@ -136,6 +171,18 @@ hr {/* configurações da linha que separa o bloco de capa do bloco de receitas,
     width: 700px;
     margin: auto;
     padding: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .receitas-area {
+        max-width: 95%;
+        height: auto;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        padding: 10px 10px 10px 10px;
+    }
+
 }
 
 .receita li {/* colocando a lista para dentro e definindo a distancia entre os elementos */
@@ -157,7 +204,9 @@ footer {/* configuração do footer, alterando a cor da fonte, o tamanho máximo
 
 @media screen and (max-width: 768px) {/* configurações do footer para dispositivos menores (Até 768px) */
     footer {
-        padding: 5px 10px; 
+        padding: 5px 10px;
+        text-overflow: ellipsis ;
+        font-size: 50%;
     }
 }
 
@@ -170,6 +219,15 @@ footer {/* configuração do footer, alterando a cor da fonte, o tamanho máximo
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .formulario__area {
+        width: 50%;
+        margin: 0 auto;
+    }
+
 }
 
 .forms {/* configuração do formulario, deixando o display flex, colocando uma borda, alinhando os elementos e conteudos ao centro, colocando a direção como coluna e adicionando uma margem */
@@ -178,6 +236,13 @@ footer {/* configuração do footer, alterando a cor da fonte, o tamanho máximo
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;  
+}
+
+@media screen and (max-width: 768px) {
+    .forms {
+        width: 90%;
+    }
+
 }
 
 label {/* configuração do label do formulario, definindo a margem, tamanho e cor da fonte */
