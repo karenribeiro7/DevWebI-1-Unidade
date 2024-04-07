@@ -13,7 +13,8 @@ body {/* configurações do body, definindo cor de fundo, tipo e cor da fonte, p
 
 @media screen and (min-width: 768px) {/* configuração do body para dispositivo maiores, com no minimo 768px de tamanho */
     body {
-      font-size: 16px; 
+      font-size: 16px;
+      padding-bottom: 10px; 
     }
 }
 
@@ -199,14 +200,18 @@ footer {/* configuração do footer, alterando a cor da fonte, o tamanho máximo
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    position: absolute;    
+    position: absolute;
+    bottom: 0;    
+    margin-top: 10px;
 }
 
 @media screen and (max-width: 768px) {/* configurações do footer para dispositivos menores (Até 768px) */
     footer {
-        padding: 5px 10px;
         text-overflow: ellipsis ;
         font-size: 50%;
+        margin-top: 20px;
+        bottom: 0;
+        padding-top: 5px;
     }
 }
 
@@ -216,7 +221,6 @@ footer {/* configuração do footer, alterando a cor da fonte, o tamanho máximo
 }
 
 .formulario__area { /* configuração da area do formulario, definindo a cor de fundo, tamanho, alinhamento ao centro e margem */
-    display: flex;
     justify-content: center;
     align-items: center;
     padding: auto;
@@ -240,7 +244,9 @@ footer {/* configuração do footer, alterando a cor da fonte, o tamanho máximo
 
 @media screen and (max-width: 768px) {
     .forms {
-        width: 90%;
+        max-width: 80%;
+        margin: 0 auto;
+        padding-bottom: 10px;
     }
 
 }
