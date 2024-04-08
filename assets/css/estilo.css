@@ -18,6 +18,14 @@ body {/* configurações do body, definindo cor de fundo, tipo e cor da fonte, p
     }
 }
 
+@media screen and (max-width: 768px) {
+    body {
+      font-size: 14px;
+      padding-bottom: 10px; 
+    }
+
+}
+
 .navbar {/* configuração de toda barra de navegação, colocando na disposição flex, alinhando ao centro, mudando a cor de fundo e colocando sombra */
     background-color: #91be95;
     display: flex;
@@ -163,6 +171,14 @@ hr {/* configurações da linha que separa o bloco de capa do bloco de receitas,
     text-align: center;
     color: #313131;
 }
+
+@media screen and (max-width: 768px) {
+    .receita h2 {
+        font-size: 100%;
+    }
+
+}
+
 .receita p {/* definindo alinhamento do texto, tamanho e altura da fonte, definindo as margens do paragrafo com frase dentro de cada receita */
     text-align: left;
     font-size: 16px;
@@ -170,6 +186,14 @@ hr {/* configurações da linha que separa o bloco de capa do bloco de receitas,
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+@media screen and (max-width: 768px) {
+    .receita p {
+        font-size: 90%;
+    }
+}
+
+
 .receitas-area {/* definindo tamanho, margem e padding das colunas de receitas */
     width: 700px;
     margin: auto;
@@ -315,5 +339,3 @@ label, input, textarea {/* configuração dos elementos do formulario, definindo
         transform: scale(1.2);
     }
 }
-
-
