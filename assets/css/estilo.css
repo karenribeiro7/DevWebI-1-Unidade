@@ -440,7 +440,7 @@ form input {/* configuração dos inputs e textarea do formulario, definindo a m
 form textarea {/* configuração dos inputs e textarea do formulario, definindo a margem, padding, largura, borda, borda arredondada e cor da fonte */
     padding: 3px;
     width: 100%;
-    max-width: 500px;
+    max-width: 490px;
     border: 1px solid #313131;
     border-radius: 5px; 
 }
