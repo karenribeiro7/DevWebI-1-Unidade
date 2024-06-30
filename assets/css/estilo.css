@@ -4,21 +4,21 @@
 }
 
 body {/* configurações do body, definindo cor de fundo, tipo e cor da fonte, posição do texto e altura minima para que o corpo fique da altura da janela do dispositivo */
-    background-color: #f8d8a5;
+    background-color: #ffffff;
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
     color: #635a49;
     position: relative;
 }
 
-@media screen and (min-width: 768px) {/* configuração do body para dispositivo maiores, com no minimo 768px de tamanho */
+@media screen and (min-width: 855px) {/* configuração do body para dispositivo maiores, com no minimo 855px de tamanho */
     body {
       font-size: 16px;
       padding-bottom: 10px; 
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 855px) { /* configuração do body para dispositivos menores, com no maximo 855px de tamanho */
     body {
       font-size: 14px;
       padding-bottom: 10px; 
@@ -46,11 +46,18 @@ body {/* configurações do body, definindo cor de fundo, tipo e cor da fonte, p
     color: #313131;
 }
 
-@media screen and (max-width: 768px) {/* configurações do header para dispositivos com tamanho máximo de 768px */
+
+@media screen and (max-width: 855px) {/* configurações dos links na barra de navegação para dispositivos com tamanho máximo de 855px */
+
     header {
-      margin-left: auto;
-      font-size: 90%;
-      height: 90%;
+        margin-left: auto;
+        font-size: 90%;
+        height: 90%;
+    } 
+
+
+    .navbar {
+        width: 100%;
     }
 
     .navbar__link {/* configurações dos links na barra de navegação para dispositivos com tamanho máximo de 768px */
@@ -62,6 +69,7 @@ body {/* configurações do body, definindo cor de fundo, tipo e cor da fonte, p
     }
 }
 
+
 hr {/* configurações da linha que separa o bloco de capa do bloco de receitas, definindo tamanho, cor, margem e sombra */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     height: 1px;
@@ -70,31 +78,37 @@ hr {/* configurações da linha que separa o bloco de capa do bloco de receitas,
     margin: auto;
 }
 
-@media screen and (max-width: 768px) {/* configurações da linha para dispositivos com tamanho máximo de 768px */
+@media screen and (max-width: 855px) {/* configurações da linha para dispositivos com tamanho máximo de 768px */
     hr {
         width: 95%;
     }
 }
 
 .capa {/* configurações do bloco de capa, definindo tamanho, alinhamento ao centro e colocando como coluna a direção */
-    width: 100%;
+    background-color: #ffb294;
+    border-radius: 10px;
+    padding: 20px;
+    margin:auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 60%;
     display: flex;
-    flex-direction: column;
+    gap: 50px;
+    /* flex-direction: column; */
     align-items: center;
-
+    justify-content: center;
 }
 
 .capa__foto {/* configurações da foto de capa do site, definindo tamanho maximo, uma borda e sua cor e largura */
-    width: 100%;
+    width: 50%;
     max-width: 150px;
     border-radius: 50%;
-    border: 2px #313131 solid;
+    /* border: 2px #313131 solid; */
 }
 
 .capa__nome {/* configurações do titulo principal do site, definindo tipo e tamanho da fonte, alinhamento ao centro, cor da fonte, margem e uma borda para o texto */
     font-family: 'Damion', cursive;
     text-align: center;
-    width: 100%;
+    width: 50%;
     max-width: 350px;
     font-size: 52px;
     font-weight: 400;
@@ -108,14 +122,24 @@ hr {/* configurações da linha que separa o bloco de capa do bloco de receitas,
     font-weight: 400;
     color: #313131;
     margin: 0;
-    width: 100%;
+    width: 50%;
     max-width: 350px;
     text-align: center;
 }
 
-@media screen and (max-width: 768px) {/* configurações da descrição para dispositivos com tamanho máximo de 768px */
+@media screen and (max-width: 855px) {/* configurações da descrição para dispositivos com tamanho máximo de 855px */
+
+    .capa {
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    .capa__nome {
+        font-size: 27px;
+    }
+
     .capa__descricao {
-        font-size: 95%;
+        font-size: 70%;
     }
 }
 
@@ -130,20 +154,118 @@ hr {/* configurações da linha que separa o bloco de capa do bloco de receitas,
     box-sizing: 100px;
 }
 
-@media screen and (max-width: 768px) {/* definindo o padding e margem da main para dispositivos com tamanho até 768px */
+.index {/* definindo o tamanho, alinhamento ao centro, margem e padding do bloco principal do site */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.highlights {/* definindo o tamanho, alinhamento ao centro, margem e padding do bloco de receitas em destaque */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    gap: 20px;
+
+}
+
+.highlights__subtitulo {/* definindo a cor, tipo e tamanho da fonte, alinhamento ao centro, padding, margem do subtitulo Nossas Receitas  */
+    margin-top: 5px;
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #313131;
+}
+@media screen and (max-width: 855px) { /* definindo o padding e margem da main para dispositivos com tamanho até 855px */
+
+    .highlights {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .highlights__receita {
+        width: 100%;
+        font-size: 90%;
+        text-align: center;
+    }
+
+    .highlights__subtitulo {
+        font-size: 100%;
+    }
+
+}
+
+@media screen and (max-width: 855px) {/* definindo o padding e margem da main para dispositivos com tamanho até 855px */
     main {
         padding: 10px; 
         margin: auto;
         overflow: hidden;
     }
 }
+
 .receita {/* definindo a cor de fundo do bloco das receitas, borda, padding dos elementos, margem e um pouco de sombra no bloco */
-    background-color: #ffb294;
+    background-color: #f8d8a5;
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+
+
+.highlights__receita {/* definindo a cor de fundo do bloco das receitas em destaque, borda, padding dos elementos, margem e um pouco de sombra no bloco */
+    background-color: #f8d8a5; 
+    margin: 0;
+    width: 50%;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.highlights__receita p { /* definindo a cor do texto, tamanho e margem do texto dentro do bloco de receitas em destaque */
+    text-align: center;
+    margin-top: 5px;
+}
+
+.index__formulario {/* definindo a cor de fundo do bloco do formulario, borda, padding dos elementos, margem e um pouco de sombra no bloco */
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    width: 50%;
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+    gap: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.index__formulario h2 {/* definindo a cor, tamanho e margem do titulo do formulario */
+    color: #313131;
+}
+
+.index__formulario a {
+    text-decoration: none;
+    background-color: #ffb294;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+    display: block; 
+    margin: 20px auto;  
+    padding: 10px;
+    color: #313131;
+
+}
+
 .receita img {/* definindo tamanho e cor da borda, margens e tamanho máximo */
     border: 6px #3a3a3a solid;
     width: 350px;
@@ -154,8 +276,31 @@ hr {/* configurações da linha que separa o bloco de capa do bloco de receitas,
     max-width: 100%;
     border-radius: 5px;
 }
-@media screen and (max-width: 768px) {/* definindo o tamanho da imagem para dispositivos com tamanho máximo de 768px */
+.highlights__receita img {/* definindo tamanho e cor da borda, margens e tamanho máximo */
+    /* border: 6px #3a3a3a solid; */
+    width: 350px;
+    height: 195px;
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto; 
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.highlights__receita h3 {/* definindo a margem, tamanho da fonte, alinhamento e cor do texto do nome de cada receita */
+    color: #313131;
+}
+
+@media screen and (max-width: 855px) {/* definindo o tamanho da imagem para dispositivos com tamanho máximo de 855px */
     .receita img {
+        width: 50%;
+        height: 50%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .highlights__receita img {
         width: 50%;
         height: 50%;
         justify-content: center;
@@ -172,7 +317,7 @@ hr {/* configurações da linha que separa o bloco de capa do bloco de receitas,
     color: #313131;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 855px) {/* definindo o tamanho do titulo para dispositivos com tamanho máximo de 855px */
     .receita h2 {
         font-size: 100%;
     }
@@ -187,7 +332,7 @@ hr {/* configurações da linha que separa o bloco de capa do bloco de receitas,
     margin-bottom: 20px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 855px) {/* definindo o tamanho do texto para dispositivos com tamanho máximo de 855px */
     .receita p {
         font-size: 90%;
     }
@@ -200,7 +345,7 @@ hr {/* configurações da linha que separa o bloco de capa do bloco de receitas,
     padding: 20px;
 }
 
-@media screen and (max-width: 768px) { /* definindo o tamanho da coluna de receitas para dispositivos com tamanho máximo de 768px */
+@media screen and (max-width: 855px) { /* definindo o tamanho da coluna de receitas para dispositivos com tamanho máximo de 855px */
     .receitas-area {
         max-width: 95%;
         height: auto;
@@ -231,7 +376,7 @@ footer {/* configuração do footer, alterando a cor da fonte, o tamanho máximo
     margin-top: 10px;
 }
 
-@media screen and (max-width: 768px) {/* configurações do footer para dispositivos menores (Até 768px) */
+@media screen and (max-width: 855px) {/* configurações do footer para dispositivos menores (Até 855px) */
     footer {
         text-overflow: ellipsis ;
         font-size: 80%;
@@ -241,18 +386,15 @@ footer {/* configuração do footer, alterando a cor da fonte, o tamanho máximo
     }
 }
 
-.icone--texto {/* configurações do favicon de coração, definindo a margem e a animação de pulsar */
-    margin: 0 8px;
-    animation: pulsar 1s infinite alternate;
-}
 
 .formulario__area { /* configuração da area do formulario, definindo a cor de fundo, tamanho, alinhamento ao centro e margem */
+    
     justify-content: center;
     align-items: center;
     padding: auto;
 }
 
-@media screen and (max-width: 768px) { /* configuração da area do formulario para dispositivos com tamanho máximo de 768px */
+@media screen and (max-width: 855px) { /* configuração da area do formulario para dispositivos com tamanho máximo de 855px */
     .formulario__area {
         width: 50%;
         margin: 0 auto;
@@ -260,7 +402,12 @@ footer {/* configuração do footer, alterando a cor da fonte, o tamanho máximo
 
 }
 
+fieldset {/* configuração do fieldset, definindo a cor de fundo */
+    background-color: #f8d8a5;
+}
+
 .forms {/* configuração do formulario, deixando o display flex, colocando uma borda, alinhando os elementos e conteudos ao centro, colocando a direção como coluna e adicionando uma margem */
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -268,7 +415,7 @@ footer {/* configuração do footer, alterando a cor da fonte, o tamanho máximo
     margin-bottom: 20px;  
 }
 
-@media screen and (max-width: 768px) {/* configuração do formulario para dispositivos com tamanho máximo de 768px */
+@media screen and (max-width: 855px) {/* configuração do formulario para dispositivos com tamanho máximo de 855px */
     .forms {
         max-width: 80%;
         margin: 0 auto;
@@ -278,15 +425,31 @@ footer {/* configuração do footer, alterando a cor da fonte, o tamanho máximo
 }
 
 label {/* configuração do label do formulario, definindo a margem, tamanho e cor da fonte */
+    font-weight: bold;
     font-size: 16px;
     color: #313131;
 }
 
-form input, form textarea {/* configuração dos inputs e textarea do formulario, definindo a margem, padding, largura, borda, borda arredondada e cor da fonte */
+form input {/* configuração dos inputs e textarea do formulario, definindo a margem, padding, largura, borda, borda arredondada e cor da fonte */
     padding: 3px;
     width: 300px;
     border: 1px solid #313131;
     border-radius: 5px; 
+}
+
+form textarea {/* configuração dos inputs e textarea do formulario, definindo a margem, padding, largura, borda, borda arredondada e cor da fonte */
+    padding: 3px;
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid #313131;
+    border-radius: 5px; 
+}
+
+@media screen and (max-width: 855px) {/* configuração dos inputs e textarea do formulario para dispositivos com tamanho máximo de 855px */
+    form textarea {
+        width: 90%;
+    }
+
 }
 
 label, input, textarea {/* configuração dos elementos do formulario, definindo a margem */
@@ -296,6 +459,8 @@ label, input, textarea {/* configuração dos elementos do formulario, definindo
 
 .bt {/* configurações do botão de enviar no formulario, mudando a cor de fundo e da fonte, alinhando o texto ao centro, mantendo o tipo da caixa do botão como bloco em linha, mudando o cursor ao passar em cima do botão, fazer a borda um poco arredondada e um pouco de sombra, definindo um tamanho mínimo */
     background-color: #ffb294; 
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
     border: none;
     color: #313131;
     padding: 10px 20px;
@@ -316,6 +481,54 @@ label, input, textarea {/* configuração dos elementos do formulario, definindo
     color: #313131;
 }
 
+.bt__index {/* configurações do botão de enviar no formulario, mudando a cor de fundo e da fonte, alinhando o texto ao centro, mantendo o tipo da caixa do botão como bloco em linha, mudando o cursor ao passar em cima do botão, fazer a borda um poco arredondada e um pouco de sombra, definindo um tamanho mínimo */
+    background-color: #ffb294; 
+    border: none;
+    color: #313131;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+    margin-bottom: 0;
+    cursor: pointer;
+    border-radius: 5px;
+    min-width: auto;
+    width: auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.index a {/* configurações do botão de enviar no formulario, mudando a cor de fundo e da fonte, alinhando o texto ao centro, mantendo o tipo da caixa do botão como bloco em linha, mudando o cursor ao passar em cima do botão, fazer a borda um poco arredondada e um pouco de sombra, definindo um tamanho mínimo */
+    background-color: #ffb294; 
+    font-weight: bold;
+    border: none;
+    color: #313131;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+    margin-bottom: 0;
+    cursor: pointer;
+    border-radius: 5px;
+    min-width: auto;
+    width: auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+@media screen and (max-width: 855px) {/* configurações do botão de enviar no formulario para dispositivos com tamanho máximo de 855px */
+    .index a {
+        font-size: 90%;
+    }
+
+}
+
+.bt__index:hover {/* configuração do botão de enviar no formulario ao passar o mouse em cima, mudando a cor de fundo e da fonte */
+    background-color: #f3a282;
+    color: #313131;
+}
+
 .nome-receita {/* configuração do nome da receita, definindo seu padding */
     padding: 10px;
 
@@ -328,14 +541,4 @@ label, input, textarea {/* configuração dos elementos do formulario, definindo
     margin: 20px;
     padding: 20px;
 
-}
-
-@keyframes pulsar {/* fazer o favicon do coração realizar a animação de pulsar, indo da escala menor até a maior */
-    0% {
-        transform: scale(.8);
-    }
-
-    100% {
-        transform: scale(1.2);
-    }
 }
