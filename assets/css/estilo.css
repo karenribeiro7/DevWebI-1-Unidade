@@ -114,7 +114,7 @@ hr {/* configurações da linha que separa o bloco de capa do bloco de receitas,
     font-weight: 400;
     color: #91be95;
     margin: 16px 0;
-    -webkit-text-stroke: 1px #313131;
+    -webkit-text-stroke: 1px #ffffff;
 }
 
 .capa__descricao {/* configurações do texto de descrição da capa do site, tamanho e cor da fonte, margem, tamanho máximo e alinhado ao centro */
