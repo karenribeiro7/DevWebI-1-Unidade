@@ -110,11 +110,11 @@ hr {/* configurações da linha que separa o bloco de capa do bloco de receitas,
     text-align: center;
     width: 50%;
     max-width: 350px;
-    font-size: 52px;
+    font-size: 62px;
     font-weight: 400;
-    color: #91be95;
+    color: #608362;
     margin: 16px 0;
-    -webkit-text-stroke: 1px #ffffff;
+    /* -webkit-text-stroke: 1px #a2d8a6; */
 }
 
 .capa__descricao {/* configurações do texto de descrição da capa do site, tamanho e cor da fonte, margem, tamanho máximo e alinhado ao centro */
@@ -144,7 +144,7 @@ hr {/* configurações da linha que separa o bloco de capa do bloco de receitas,
 }
 
 .subtitulo {/* definindo a cor, tipo e tamanho da fonte, alinhamento ao centro, padding, margem do subtitulo Nossas Receitas  */
-    color:#91be95;
+    color:#608362;
     font-family: 'Damion', cursive;
     font-size: 36px;
     font-weight: 400;
