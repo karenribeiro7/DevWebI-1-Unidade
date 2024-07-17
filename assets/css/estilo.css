@@ -9,6 +9,7 @@ body {/* configurações do body, definindo cor de fundo, tipo e cor da fonte, p
     font-family: 'Poppins', sans-serif;
     color: #635a49;
     position: relative;
+
 }
 
 @media screen and (min-width: 855px) {/* configuração do body para dispositivo maiores, com no minimo 855px de tamanho */
@@ -53,6 +54,7 @@ body {/* configurações do body, definindo cor de fundo, tipo e cor da fonte, p
         margin-left: auto;
         font-size: 90%;
         height: 90%;
+        
     } 
 
 
