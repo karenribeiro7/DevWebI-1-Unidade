@@ -35,24 +35,36 @@ body {/* configurações do body, definindo cor de fundo, tipo e cor da fonte, p
     
 }
 
-.navbar {/* configuração de toda barra de navegação, colocando na disposição flex, alinhando ao centro, mudando a cor de fundo e colocando sombra */
+.navbar {
     background-color: #91be95;
     display: flex;
     text-align: center;
+    align-items: center;
     justify-content: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 3px;
     height: 30px;
+    flex-wrap: wrap; /* Garante que o menu se ajuste quando expandido */
 }
 
-.navbar__link {/* configurações dos links na barra de navegação, colocando em linha, definindo padding e margens e mudando a cor da fonte  */
-    display: inline;
+.navbar__link {
+    display: inline-block;
     text-decoration: none;
     padding-right: 8px;
     padding-top: 2px;
+    color: #313131;
     margin-left: auto;
     margin-right: auto;
     color: #313131;
+}
+
+.navbar__toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 10px; /* Espaço entre o botão e os links */
 }
 
 
@@ -67,15 +79,32 @@ body {/* configurações do body, definindo cor de fundo, tipo e cor da fonte, p
 
 
     .navbar {
-        width: 100%;
+        flex-direction: column;
+        align-items: center; /* centraliza o menu */
+        padding: 10px; /* Adiciona um pouco de padding */
+        height: auto; /* Permite que a altura se ajuste conforme o conteúdo */
     }
 
-    .navbar__link {/* configurações dos links na barra de navegação para dispositivos com tamanho máximo de 768px */
-        margin-top: 2px;
-        padding-right: 5px;
-        padding-top: 2px;
-        font-size: 95%;
-        overflow: scroll;
+    .navbar__toggle {
+        display: block;
+        
+    }
+
+    .navbar__link {
+        display: none; /* Inicialmente escondido em telas menores */
+        width: 100%; /* Garante que os links ocupem toda a largura */
+        text-align: center;
+        padding: 10px;
+        box-sizing: border-box;
+        border-top: 1px solid #ddd; /* Opcional: Adiciona uma linha entre os itens */
+    }
+
+    .navbar.active .navbar__link {
+        display: block; /* Exibe links quando ativo */
+    }
+
+    .navbar__link:first-child {
+        border-top: none; /* Remove a linha do primeiro item */
     }
 }
 
