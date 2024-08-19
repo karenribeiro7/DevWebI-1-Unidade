@@ -22,8 +22,16 @@ body {/* configurações do body, definindo cor de fundo, tipo e cor da fonte, p
     body {
       font-size: 14px;
       padding-bottom: 10px; 
+      gap: 30px;
     }
+}
 
+@media screen and (min-width: 855px) and (max-width: 1024px) { /* configuração do body para dispositivos com tamanho entre 855px e 1024px */
+    body {
+      gap: 10px;
+      padding-bottom: 10px; 
+    }
+    
 }
 
 .navbar {/* configuração de toda barra de navegação, colocando na disposição flex, alinhando ao centro, mudando a cor de fundo e colocando sombra */
@@ -135,11 +143,11 @@ hr {/* configurações da linha que separa o bloco de capa do bloco de receitas,
     }
 
     .capa__nome {
-        font-size: 27px;
+        font-size: 50px;
     }
 
     .capa__descricao {
-        font-size: 70%;
+        font-size: 90%;
     }
 }
 
