@@ -435,7 +435,7 @@ footer {/* configuração do footer, alterando a cor da fonte, o tamanho máximo
 
 @media screen and (max-width: 855px) { /* configuração da area do formulario para dispositivos com tamanho máximo de 855px */
     .formulario__area {
-        width: 50%;
+        width: 60%;
         margin: 0 auto;
     }
 
@@ -456,7 +456,7 @@ fieldset {/* configuração do fieldset, definindo a cor de fundo */
 
 @media screen and (max-width: 855px) {/* configuração do formulario para dispositivos com tamanho máximo de 855px */
     .forms {
-        max-width: 80%;
+        max-width: 100%;
         margin: 0 auto;
         padding-bottom: 10px;
     }
@@ -471,28 +471,60 @@ label {/* configuração do label do formulario, definindo a margem, tamanho e c
 
 form input {/* configuração dos inputs e textarea do formulario, definindo a margem, padding, largura, borda, borda arredondada e cor da fonte */
     padding: 3px;
-    width: 300px;
+    width: 95%;
     border: 1px solid #313131;
     border-radius: 5px; 
 }
 
 form textarea {/* configuração dos inputs e textarea do formulario, definindo a margem, padding, largura, borda, borda arredondada e cor da fonte */
     padding: 3px;
-    width: 100%;
+    width: 95%;
     max-width: 490px;
     border: 1px solid #313131;
     border-radius: 5px; 
 }
 
+.sugestoes {
+    width: 100%;
+    max-width: 490px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    list-style-type: none;
+    cursor: pointer;            
+}
+
+.sugestoes:hover {
+    background-color: #f7c677;
+    width: 30%;
+}
+
 @media screen and (max-width: 855px) {/* configuração dos inputs e textarea do formulario para dispositivos com tamanho máximo de 855px */
     form textarea {
-        width: 90%;
+        width: 87%;
+    }
+
+    label {
+        font-size: 90%;
+        margin: 10px;
+    }
+
+    input, textarea {/* configuração dos elementos do formulario, definindo a margem */
+        margin: 10px;
+        max-width: 87%;
+    }
+
+    input::placeholder {/* configuração dos elementos do formulario, definindo a cor do texto de placeholder */
+        color: #313131;
+        font-size: 90%;
     }
 
 }
 
 label, input, textarea {/* configuração dos elementos do formulario, definindo a margem */
     margin: 10px;
+    
 }
 
 
