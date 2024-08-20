@@ -3,7 +3,7 @@ function init() {//função que vai chamar as outras funções para serem execut
     sugestaoAutomatica();
 }
 
-document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('DOMContentLoaded', init);//quando o documento for carregado ele vai chamar a função init
 
 
 document.addEventListener('DOMContentLoaded', () => { //quando o documento for carregado ele vai adicionar a classe active no menu e vai mostrar o menu hamburguer (manter responsividade da navbar)
@@ -13,6 +13,55 @@ document.addEventListener('DOMContentLoaded', () => { //quando o documento for c
     toggleButton.addEventListener('click', () => {
         navbar.classList.toggle('active');
     });
+});
+
+document.querySelector('.forms').addEventListener('submit', function(event) {//quando o form for submetido ele vai armazenar os dados no indexedDB
+    event.preventDefault(); //impedir o envio do formulário para não recarregar a página
+
+    const emailReceita = document.getElementById('email-receita').value;
+    const telefoneReceita = document.getElementById('telefone-receita').value;
+    const nomeReceita = document.getElementById('nome-receita').value;
+    const linkReceita = document.getElementById('link').value;
+    const receitaPassos = document.getElementById('receita-passos').value;
+
+    const imagemInput = document.getElementById('imagem');
+    const imagemFile = imagemInput.files[0];
+    
+    const reader = new FileReader();//vai ler o arquivo de imagem
+    reader.onloadend = () => {
+        const imagemDataURL = reader.result;
+
+        const dbRequest = indexedDB.open('ReceitasDB', 1);//vai abrir o banco de dados
+
+        dbRequest.onsuccess = (event) => {//quando o banco de dados for aberto com sucesso ele vai armazenar os dados
+            const db = event.target.result;
+            const transaction = db.transaction(['receitas'], 'readwrite');
+            const objectStore = transaction.objectStore('receitas');
+            
+            objectStore.add({//vai adicionar os dados no indexedDB
+                email: emailReceita,
+                telefone: telefoneReceita,
+                nome: nomeReceita,
+                link: linkReceita,
+                passos: receitaPassos,
+                imagem: imagemDataURL //vai armazenar a imagem como Data URL
+            });
+
+            transaction.oncomplete = () => { //se os dados forem salvos com sucesso ele vai redirecionar para a página de sucesso
+                window.location.href = 'formulario-sucesso.html';
+            };
+
+            transaction.onerror = (event) => {//se ocorrer um erro ao salvar os dados
+                console.error('Erro ao salvar os dados', event);
+            };
+        };
+
+        dbRequest.onerror = (event) => {//se ocorrer um erro ao abrir o banco de dados
+            console.error('Erro ao abrir o banco de dados', event);
+        };
+    };
+
+    reader.readAsDataURL(imagemFile);//vai ler o arquivo de imagem
 });
 
 function aplicarMascaraTelefone() {

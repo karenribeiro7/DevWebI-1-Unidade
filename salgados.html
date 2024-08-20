@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+<head><!-- Cabeçalho da página -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Davi Damasceno, Karen Ribeiro e Liana Carvalho">
     <meta name="description" content="Site desenvolvido para primeira unidade da disciplina de DevWeb I">
-    <link rel="stylesheet" href="assets/css/estilo.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="assets/css/estilo.css"><!-- Importação do arquivo de estilos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"><!-- Pré-conexão com o servidor de fontes -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Damion&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Damion&family=Poppins:wght@400;700&display=swap" rel="stylesheet"><!-- Importação das fontes utilizadas -->
 
-    <script src="app.js" defer></script><!-- O defer faz com que o script seja carregado após o carregamento da página -->
-
-    <link rel="shortcut icon" type="imagem/png" href="assets/icones/iconmonstr-eat-7.svg">
+    <link rel="shortcut icon" type="imagem/png" href="assets/icones/iconmonstr-eat-7.svg"><!-- Ícone da página -->
     
-    <title>Cozinha Express</title>
+    <title>Cozinha Express</title><!-- Título da página -->
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <button class="navbar__toggle" aria-label="Toggle menu">&#9776;</button>
+        <nav class="navbar"> <!-- O menu de navegação foi colocado em um elemento nav -->
+            <button class="navbar__toggle" aria-label="Toggle menu">&#9776;</button><!-- Botão para abrir o menu em telas menores -->
                 <a class="navbar__link" href="index.html">Home</a>
                 <a class="navbar__link" href="salgados.html">Salgadas</a>
                 <a class="navbar__link" href="doces.html">Doces</a>
@@ -28,24 +26,24 @@
     </header><br>
     <main class="main">
         <div class="capa">
-            <img class="capa__foto" src="assets/imagens/receitas.jpg" alt="Icone de uma tigela e um batedor, com brilhinhos e corações por cima">
-            <h1 class="capa__nome">Cozinha Express</h1>
-            <p class="capa__descricao">
+            <img class="capa__foto" src="assets/imagens/receitas.jpg" alt="Icone de uma tigela e um batedor, com brilhinhos e corações por cima"><!-- Imagem de capa -->
+            <h1 class="capa__nome">Cozinha Express</h1><!-- Título da página -->
+            <p class="capa__descricao"><!-- Descrição da página -->
                 Delícias com Sal! Receitas salgadas para café da manhã, almoço, lanche e jantar.
             </p>
         </div>
         <br>
 
-        <h2 class="subtitulo"><strong>Nossas Receitas</strong></h2>
+        <h2 class="subtitulo"><strong>Nossas Receitas</strong></h2><!-- Título da seção de receitas -->
         <div class="receitas-area">
-            <section class="receitas">
+            <section class="receitas"><!-- Seção de receitas -->
                 <div class="receita">
-                    <section class="receita__imagem__titulo">
-                        <img src="assets/imagens/lasanha.jpg" alt="Imagem da lasanha preparada">
-                        <h2>Lasanha Prática</h2>
+                    <section class="receita__imagem__titulo"><!-- Seção com a imagem e o título da receita -->
+                        <img src="assets/imagens/lasanha.jpg" alt="Imagem da lasanha preparada"><!-- Imagem da receita -->
+                        <h2>Lasanha Prática</h2><!-- Título da receita -->
                     </section>
-                    <section class="receita__ingredientes">
-                    <p>Uma forma rápida e simples de fazer uma lasanha! O que você precisa:</p>
+                    <section class="receita__ingredientes"><!-- seção de ingredientes da receita em lista não ordenada -->
+                        <p>Uma forma rápida e simples de fazer uma lasanha! O que você precisa:</p>
                         <ul>
                             <li>1 pacote de massa para lasanha direto ao forno tradicional (200 g)</li>
                             <li>1 pacote (sachê) de molho de tomate bolonhesa (395 g)</li>
@@ -57,7 +55,7 @@
                             <li>1/3 de copo de água</li>
                         </ul>
                     </section>
-                    <section class="receita__modopreparo">
+                    <section class="receita__modopreparo"><!-- Seção com o modo de preparo da receita em lista ordenada-->
                         <p>Modo de Preparo: </p> 
 
                         <ol>
@@ -71,7 +69,7 @@
                             <li>Leve ao forno a 180ºC para assar por 15 minutos.</li>
                         </ol></p>
                     </section>
-                    <section class="receita__fonte">
+                    <section class="receita__fonte"><!-- Seção com a fonte da receita -->
                         <p>Receita obtida neste <strong><a href="https://www.tudogostoso.com.br/receita/179019-lasanha-pratica.html">link</a></strong>.</p>
                     </section>
                 </div>
@@ -165,7 +163,7 @@
         </section>
     </main>   
 </body>
-<footer>
-    <p>&copy; 2024 Cozinha Express. Todos os direitos reservados.</p>    
+<footer><!-- Rodapé da página -->
+    <p>&copy; 2024 Cozinha Express. Todos os direitos reservados.</p> <!-- Texto de direitos autorais -->   
 </footer>
 </html>

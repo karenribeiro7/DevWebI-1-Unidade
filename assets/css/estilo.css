@@ -35,7 +35,7 @@ body {/* configurações do body, definindo cor de fundo, tipo e cor da fonte, p
     
 }
 
-.navbar {
+.navbar {/* configurações da barra de navegação, definindo a cor de fundo, display, alinhamento ao centro, justificação do conteudo, sombra, padding, altura e flex-wrap */
     background-color: #91be95;
     display: flex;
     text-align: center;
@@ -44,10 +44,10 @@ body {/* configurações do body, definindo cor de fundo, tipo e cor da fonte, p
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 3px;
     height: 30px;
-    flex-wrap: wrap; /* Garante que o menu se ajuste quando expandido */
+    flex-wrap: wrap; /* garantir que o menu se ajuste quando expandido */
 }
 
-.navbar__link {
+.navbar__link {/* configurações dos links na barra de navegação, definindo a cor, tamanho e tipo da fonte, margem, padding, alinhamento ao centro, display e cor do texto */
     display: inline-block;
     text-decoration: none;
     padding-right: 8px;
@@ -58,7 +58,7 @@ body {/* configurações do body, definindo cor de fundo, tipo e cor da fonte, p
     color: #313131;
 }
 
-.navbar__toggle {
+.navbar__toggle {/* configurações do botão de menu, definindo o tamanho da fonte, a borda, o cursor e a margem */
     display: none;
     background: none;
     border: none;
@@ -292,7 +292,7 @@ hr {/* configurações da linha que separa o bloco de capa do bloco de receitas,
     color: #313131;
 }
 
-.index__formulario a {
+.index__formulario a { /* definindo a cor de fundo, cor da fonte, tamanho da fonte, margem, padding, borda arredondada, alinhamento ao centro e display do botão  */
     text-decoration: none;
     background-color: #ffb294;
     font-weight: bold;
@@ -484,7 +484,7 @@ form textarea {/* configuração dos inputs e textarea do formulario, definindo 
     border-radius: 5px; 
 }
 
-.sugestoes {
+.sugestoes {/* configuração das sugestões, definindo largura, margem, alinhamento ao centro, margem e cursor */
     width: 100%;
     max-width: 490px;
     text-align: center;
@@ -495,17 +495,30 @@ form textarea {/* configuração dos inputs e textarea do formulario, definindo 
     cursor: pointer;            
 }
 
-.sugestoes:hover {
+.sugestoes:hover {/* configuração das sugestões ao passar o mouse em cima, mudando a cor de fundo */
     background-color: #f7c677;
     width: 30%;
 }
 
-@media screen and (max-width: 855px) {/* configuração dos inputs e textarea do formulario para dispositivos com tamanho máximo de 855px */
+label, input, textarea {/* configuração dos elementos do formulario, definindo a margem */
+    margin: 10px;    
+}
+
+#dados-receita {/* configuração do bloco de dados da receita, definindo a cor de fundo, borda, padding, margem e um pouco de sombra */
+    border-radius: 10px;
+    text-align: center;
+    padding: 15px;
+    width: 100%;    
+    margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 855px) {/* configuração dos inputs e textarea do formulario, label, sugestões e div dos dados para dispositivos com tamanho máximo de 855px */
     form textarea {
         width: 87%;
     }
 
-    label {
+    label {/* configuração dos elementos de label, definindo a margem e tamanho da fonte */
         font-size: 90%;
         margin: 10px;
     }
@@ -520,16 +533,21 @@ form textarea {/* configuração dos inputs e textarea do formulario, definindo 
         font-size: 90%;
     }
 
-    .sugestoes {
+    .sugestoes {/* configuração dos elementos de sugestão, definindo o tamanho */
         width: 90%;
+    }
+
+    #dados-receita {/* configuração do bloco de dados da receita para dispositivos com tamanho máximo de 855px */
+        width: 90%;
+        padding: 20px;
+    }
+
+    #dados-receita img {/* definindo tamanho máximo */
+        max-width: 100%;
     }
 
 }
 
-label, input, textarea {/* configuração dos elementos do formulario, definindo a margem */
-    margin: 10px;
-    
-}
 
 
 .bt {/* configurações do botão de enviar no formulario, mudando a cor de fundo e da fonte, alinhando o texto ao centro, mantendo o tipo da caixa do botão como bloco em linha, mudando o cursor ao passar em cima do botão, fazer a borda um poco arredondada e um pouco de sombra, definindo um tamanho mínimo */

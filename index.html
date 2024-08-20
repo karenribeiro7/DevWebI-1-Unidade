@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+<head><!-- Cabeçalho da página -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Davi Damasceno, Karen Ribeiro e Liana Carvalho">
     <meta name="description" content="Site desenvolvido para primeira unidade da disciplina de DevWeb I">
-    <link rel="stylesheet" href="assets/css/estilo.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="assets/css/estilo.css"><!-- Importação do arquivo de estilos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"><!-- Pré-conexão com o servidor de fontes -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Damion&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Damion&family=Poppins:wght@400;700&display=swap" rel="stylesheet"><!-- Importação das fontes utilizadas -->
 
-    <link rel="shortcut icon" type="imagem/png" href="assets/icones/iconmonstr-eat-7.svg">
+    <link rel="shortcut icon" type="imagem/png" href="assets/icones/iconmonstr-eat-7.svg"><!-- Ícone da página -->
     
-    <title>Cozinha Express</title>
+    <title>Cozinha Express</title><!-- Título da página -->
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <button class="navbar__toggle" aria-label="Toggle menu">&#9776;</button>
+        <nav class="navbar"> <!-- O menu de navegação foi colocado em um elemento nav -->
+            <button class="navbar__toggle" aria-label="Toggle menu">&#9776;</button><!-- Botão para abrir o menu em telas menores -->
                 <a class="navbar__link" href="index.html">Home</a>
                 <a class="navbar__link" href="salgados.html">Salgadas</a>
                 <a class="navbar__link" href="doces.html">Doces</a>
@@ -26,17 +26,17 @@
     </header><br>
     <main class="main">
         <div class="capa">
-            <img class="capa__foto" src="assets/imagens/receitas.jpg" alt="Icone de uma tigela e um batedor, com brilhinhos e corações por cima">
-            <h1 class="capa__nome">Cozinha Express</h1>
-            <p class="capa__descricao">
+            <img class="capa__foto" src="assets/imagens/receitas.jpg" alt="Icone de uma tigela e um batedor, com brilhinhos e corações por cima"><!-- Imagem de capa -->
+            <h1 class="capa__nome">Cozinha Express</h1><!-- Título da página -->
+            <p class="capa__descricao"><!-- Descrição da página -->
                 Aqui separamos algumas de nossas receitas preferidas! Preparados para ficar com água na boca?
             </p>
         </div>
         <br>
   
-        <h2 class="highlights__subtitulo">Receitas em Destaque</h2>
+        <h2 class="highlights__subtitulo">Receitas em Destaque</h2><!-- Título da seção de destaques -->
         <section class="index">
-            <section class="highlights">
+            <section class="highlights"><!-- Seção de destaques -->
                 
                 <div class="highlights__receita">
                     <img src="assets/imagens/cheesecake.jpg" alt="Cheesecake">
@@ -52,7 +52,7 @@
                 </div>
             </section>
             
-            <section class="index__formulario">
+            <section class="index__formulario"><!-- Seção que redireciona para o envio de receitas -->
                 <h2>Envie sua Receita</h2>
                 <p>Tem uma receita incrível? Compartilhe conosco e veja ela aqui no nosso site!</p>
                 <a class="bt__index" type="submit" value="Enviar" href="formulario.html">Enviar Receita</a>
@@ -61,8 +61,8 @@
     </main>   
     <script src="app.js" defer></script> <!-- O defer faz com que o script seja carregado após o carregamento da página -->
 </body>
-<footer>
-    <p>&copy; 2024 Cozinha Express. Todos os direitos reservados.</p>    
+<footer><!-- Rodapé da página -->
+    <p>&copy; 2024 Cozinha Express. Todos os direitos reservados.</p> <!-- Texto de direitos autorais -->    
 </footer>
 </html>
 

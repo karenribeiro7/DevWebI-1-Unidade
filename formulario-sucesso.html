@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+<head><!-- Cabeçalho da página -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Davi Damasceno, Karen Ribeiro e Liana Carvalho">
     <meta name="description" content="Site desenvolvido para primeira unidade da disciplina de DevWeb I">
-    <link rel="stylesheet" href="assets/css/estilo.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="assets/css/estilo.css"><!-- Importação do arquivo de estilos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"><!-- Pré-conexão com o servidor de fontes -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Damion&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Damion&family=Poppins:wght@400;700&display=swap" rel="stylesheet"><!-- Importação das fontes utilizadas -->
 
-    <link rel="shortcut icon" type="imagem/png" href="assets/icones/iconmonstr-eat-7.svg">
+    <link rel="shortcut icon" type="imagem/png" href="assets/icones/iconmonstr-eat-7.svg"><!-- Ícone da página -->
+
+    <script src="app.js" defer></script> <!-- O defer faz com que o script seja carregado após o carregamento da página -->
     
-    <title>Cozinha Express</title>
+    <title>Cozinha Express</title><!-- Título da página -->
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <button class="navbar__toggle" aria-label="Toggle menu">&#9776;</button>
+        <nav class="navbar"> <!-- O menu de navegação foi colocado em um elemento nav -->
+            <button class="navbar__toggle" aria-label="Toggle menu">&#9776;</button><!-- Botão para abrir o menu em telas menores -->
                 <a class="navbar__link" href="index.html">Home</a>
                 <a class="navbar__link" href="salgados.html">Salgadas</a>
                 <a class="navbar__link" href="doces.html">Doces</a>
                 <a class="navbar__link" href="formulario.html">Enviar Receita</a>
         </nav>
-        <script src="app.js" defer></script><!-- O defer faz com que o script seja carregado após o carregamento da página -->
     </header><br>
     <main class="main">
         <div class="capa">
-            <img class="capa__foto" src="assets/imagens/receitas.jpg" alt="Icone de uma tigela e um batedor, com brilhinhos e corações por cima">
-            <h1 class="capa__nome">Cozinha Express</h1>
-            <p class="capa__descricao">
+            <img class="capa__foto" src="assets/imagens/receitas.jpg" alt="Icone de uma tigela e um batedor, com brilhinhos e corações por cima"><!-- Imagem de capa -->
+            <h1 class="capa__nome">Cozinha Express</h1><!-- Título da página -->
+            <p class="capa__descricao"><!-- Descrição da página -->
                 Deseja colocar sua receita favorita aqui? Preencha o formulário abaixo e nos envie!
             </p>
         </div>
@@ -38,10 +39,53 @@
         <h2 class="subtitulo"><strong>Envie sua receita!</strong></h2>
         <div class="formulario__area">
             <h1 class="fomulario__sucesso">Receita enviada com sucesso!</h1>
+            <div id="dados-receita">
+                <!-- Os dados da receita são exibidos aqui -->
+            </div>
         </div>
     </main>   
 </body>
 <footer>
     <p>&copy; 2024 Cozinha Express. Todos os direitos reservados.</p>    
 </footer>
+<script> //não conseguimos fazer funcionar no arquivo app.js, mas aqui pega
+        window.addEventListener('load', () => {
+        const dbRequest = indexedDB.open('ReceitasDB', 1);//nome do banco de dados e versão
+
+        dbRequest.onsuccess = (event) => {//caso o banco de dados seja aberto com sucesso, ele executa a função que recupera os dados do banco de dados e exibe na tela
+            const db = event.target.result;//recupera o banco de dados
+            const transaction = db.transaction(['receitas'], 'readonly');//recupera a transação do banco de dados
+            const objectStore = transaction.objectStore('receitas');//recupera o objeto do banco de dados
+            const request = objectStore.openCursor();//abre o cursor do banco de dados
+
+            request.onsuccess = (event) => {//recupera os dados do banco de dados e exibe na tela
+                const cursor = event.target.result;
+                if (cursor) {
+                    const data = cursor.value;//recupera os dados da receita do banco de dados e exibe na tela a partir do id 
+                    document.getElementById('dados-receita').innerHTML = `
+                        <p><strong>Email:</strong> ${data.email}</p>
+                        <p><strong>Telefone:</strong> ${data.telefone}</p>
+                        <p><strong>Nome da Receita:</strong> ${data.nome}</p>
+                        <p><strong>Link da Receita:</strong> <a href="${data.link}" target="_blank">${data.link}</a></p>
+                        <p><strong>Receita:</strong> ${data.passos}</p>
+                        <p><strong>Imagem:</strong> <img src="${data.imagem}" alt="Imagem da Receita" style="width:80px max-width: 50%; height: auto;"></p>
+                    `;
+                    cursor.continue();//continua a busca pelos dados
+                } else {
+                    if (document.getElementById('dados-receita').innerHTML.trim() === '') {
+                        document.getElementById('dados-receita').innerHTML = '<p>Nenhuma receita encontrada.</p>';
+                    }
+                }
+            };
+
+            request.onerror = (event) => {//caso ocorra um erro ao recuperar os dados do banco de dados
+                console.error('Erro ao recuperar os dados', event);
+            };
+        };
+
+        dbRequest.onerror = (event) => {//caso ocorra um erro ao abrir o banco de dados
+            console.error('Erro ao abrir o banco de dados', event);
+        };
+    });
+</script> 
 </html>
