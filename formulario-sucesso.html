@@ -39,6 +39,7 @@
         <h2 class="subtitulo"><strong>Envie sua receita!</strong></h2>
         <div class="formulario__area">
             <h1 class="fomulario__sucesso">Receita enviada com sucesso!</h1>
+            <h2 class="fomulario__sucesso">Dados enviados:</h2>
             <div id="dados-receita">
                 <!-- Os dados da receita são exibidos aqui -->
             </div>
@@ -49,28 +50,29 @@
     <p>&copy; 2024 Cozinha Express. Todos os direitos reservados.</p>    
 </footer>
 <script> //não conseguimos fazer funcionar no arquivo app.js, mas aqui pega
-        window.addEventListener('load', () => {
-        const dbRequest = indexedDB.open('ReceitasDB', 1);//nome do banco de dados e versão
+        if (window.location.pathname.includes('formulario-sucesso.html')) {
+    window.addEventListener('load', () => {
+        const dbRequest = indexedDB.open('ReceitasDB', 1);
 
-        dbRequest.onsuccess = (event) => {//caso o banco de dados seja aberto com sucesso, ele executa a função que recupera os dados do banco de dados e exibe na tela
-            const db = event.target.result;//recupera o banco de dados
-            const transaction = db.transaction(['receitas'], 'readonly');//recupera a transação do banco de dados
-            const objectStore = transaction.objectStore('receitas');//recupera o objeto do banco de dados
-            const request = objectStore.openCursor();//abre o cursor do banco de dados
+        dbRequest.onsuccess = (event) => {
+            const db = event.target.result;
+            const transaction = db.transaction(['receitas'], 'readonly');
+            const objectStore = transaction.objectStore('receitas');
+            const request = objectStore.openCursor();
 
-            request.onsuccess = (event) => {//recupera os dados do banco de dados e exibe na tela
+            request.onsuccess = (event) => {
                 const cursor = event.target.result;
                 if (cursor) {
-                    const data = cursor.value;//recupera os dados da receita do banco de dados e exibe na tela a partir do id 
+                    const data = cursor.value;
                     document.getElementById('dados-receita').innerHTML = `
                         <p><strong>Email:</strong> ${data.email}</p>
                         <p><strong>Telefone:</strong> ${data.telefone}</p>
                         <p><strong>Nome da Receita:</strong> ${data.nome}</p>
                         <p><strong>Link da Receita:</strong> <a href="${data.link}" target="_blank">${data.link}</a></p>
                         <p><strong>Receita:</strong> ${data.passos}</p>
-                        <p><strong>Imagem:</strong> <img src="${data.imagem}" alt="Imagem da Receita" style="width:80px max-width: 50%; height: auto;"></p>
+                        <p><strong>Imagem:</strong> <img src="${data.imagem}" alt="Imagem da Receita" style="width:300px; max-width: 80%; height: auto;"></p>
                     `;
-                    cursor.continue();//continua a busca pelos dados
+                    cursor.continue();
                 } else {
                     if (document.getElementById('dados-receita').innerHTML.trim() === '') {
                         document.getElementById('dados-receita').innerHTML = '<p>Nenhuma receita encontrada.</p>';
@@ -78,14 +80,15 @@
                 }
             };
 
-            request.onerror = (event) => {//caso ocorra um erro ao recuperar os dados do banco de dados
+            request.onerror = (event) => {
                 console.error('Erro ao recuperar os dados', event);
             };
         };
 
-        dbRequest.onerror = (event) => {//caso ocorra um erro ao abrir o banco de dados
+        dbRequest.onerror = (event) => {
             console.error('Erro ao abrir o banco de dados', event);
         };
     });
+}
 </script> 
 </html>

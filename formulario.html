@@ -11,8 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Damion&family=Poppins:wght@400;700&display=swap" rel="stylesheet"><!-- Importação das fontes utilizadas -->
 
     <link rel="shortcut icon" type="imagem/png" href="assets/icones/iconmonstr-eat-7.svg"><!-- Ícone da página -->
-
-    <script src="app.js" defer></script> <!-- O defer faz com que o script seja carregado após o carregamento da página -->
     
     <title>Cozinha Express</title><!-- Título da página -->
 </head>
@@ -39,7 +37,7 @@
         <h2 class="subtitulo"><strong>Envie sua receita!</strong></h2><!-- Título da seção de envio de receitas -->
         <div class="formulario__area"><!-- Área do formulário -->
         
-            <form class="forms" method="get" action="formulario-sucesso.html"><!-- Formulário de envio de receitas -->
+            <form class="forms" method="post" action="formulario-sucesso.html"><!-- Formulário de envio de receitas -->
                 <fieldset><!-- Agrupamento de campos do formulário -->
                 
                 <label for="email-receita">Seu e-mail:</label><!-- Campo de e-mail -->
@@ -60,7 +58,8 @@
                 </form> 
             <br>
         </div>
-    </main>   
+    </main> 
+    <script src="app.js"></script> <!-- O defer faz com que o script seja carregado após o carregamento da página -->  
 </body>
 <footer><!-- Rodapé da página -->
     <p>&copy; 2024 Cozinha Express. Todos os direitos reservados.</p> <!-- Texto de direitos autorais -->

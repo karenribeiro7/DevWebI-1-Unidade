@@ -1,6 +1,7 @@
+
 function init() {//função que vai chamar as outras funções para serem executadas quando o documento for carregado
     aplicarMascaraTelefone();
-    sugestaoAutomatica();
+    indexedDB.deleteDatabase('ReceitasDB');//vai deletar o banco de dados para não ter problemas com a versão
 }
 
 document.addEventListener('DOMContentLoaded', init);//quando o documento for carregado ele vai chamar a função init
@@ -24,19 +25,30 @@ document.querySelector('.forms').addEventListener('submit', function(event) {//q
     const linkReceita = document.getElementById('link').value;
     const receitaPassos = document.getElementById('receita-passos').value;
 
-    const imagemInput = document.getElementById('imagem');
-    const imagemFile = imagemInput.files[0];
+    const imagemInput = document.getElementById('imagem');//vai pegar o input file da imagem para armazenar no indexedDB
+    const imagemFile = imagemInput.files[0];//vai pegar o arquivo de imagem que o user selecionou para armazenar no indexedDB
     
     const reader = new FileReader();//vai ler o arquivo de imagem
     reader.onloadend = () => {
-        const imagemDataURL = reader.result;
+        const imagemDataURL = reader.result;//vai armazenar a imagem como Data URL
 
-        const dbRequest = indexedDB.open('ReceitasDB', 1);//vai abrir o banco de dados
+        const dbRequest = indexedDB.open('ReceitasDB', 1); //vai abrir o banco de dados
 
-        dbRequest.onsuccess = (event) => {//quando o banco de dados for aberto com sucesso ele vai armazenar os dados
+        dbRequest.onupgradeneeded = (event) => {//vai criar o banco de dados e a object store
+            const db = event.target.result;
+            console.log('Criando ou atualizando banco de dados...');
+            if (!db.objectStoreNames.contains('receitas')) {
+                db.createObjectStore('receitas', { keyPath: 'id', autoIncrement: true });
+                console.log('Object store "receitas" criado');
+            }
+        };
+
+        dbRequest.onsuccess = (event) => {//se o banco de dados for aberto com sucesso ele vai armazenar os dados
+            console.log('Banco de dados aberto com sucesso');
             const db = event.target.result;
             const transaction = db.transaction(['receitas'], 'readwrite');
             const objectStore = transaction.objectStore('receitas');
+            console.log('Object store "receitas" acessado com sucesso');
             
             objectStore.add({//vai adicionar os dados no indexedDB
                 email: emailReceita,
@@ -64,25 +76,33 @@ document.querySelector('.forms').addEventListener('submit', function(event) {//q
     reader.readAsDataURL(imagemFile);//vai ler o arquivo de imagem
 });
 
-function aplicarMascaraTelefone() {
-    const telefone = document.getElementById('telefone-receita');
-    telefone.addEventListener('input', (event) => {//vai chamar a função para aplicar a máscara no campo de telefone
-        let valor = event.target.value.replace(/\D/g, '');//vai remover todos os caracteres que não são números
-        
-        let valorMaximo = '';
-        for (let i = 0; i < valor.length; i++) {//adicionando os valores até chegar em 11
-            if (i < 11) {
-                valorMaximo += valor[i];
-            }
-        }
-        
-        if (valorMaximo.length === 11) {//se o valor digitado for igual a 11 ele vai aplicar a máscara
-            valorMaximo = valorMaximo.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
-        }
+document.addEventListener('DOMContentLoaded', () => {
+    // Função para aplicar a máscara de telefone
+    function aplicarMascaraTelefone() {
+        const telefone = document.getElementById('telefone-receita');
+        if (telefone) { // Verifica se o elemento existe
+            telefone.addEventListener('input', (event) => {
+                let valor = event.target.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+                
+                let valorMaximo = '';
+                for (let i = 0; i < valor.length; i++) { // Adiciona os valores até 11
+                    if (i < 11) {
+                        valorMaximo += valor[i];
+                    }
+                }
+                
+                if (valorMaximo.length === 11) { // Aplica a máscara se o valor for 11 dígitos
+                    valorMaximo = valorMaximo.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+                }
 
-        event.target.value = valorMaximo;
-    });
-}
+                event.target.value = valorMaximo;//vai adicionar o valor com a máscara no campo
+            });
+        }
+    }
+
+    // Chama a função para aplicar a máscara
+    aplicarMascaraTelefone();
+});
 
 
 document.getElementById('email-receita').addEventListener('input', function(event) {//vai chamar a função para verificar se o email digitado é válido
