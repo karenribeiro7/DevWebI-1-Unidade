@@ -17,7 +17,8 @@ document.addEventListener('DOMContentLoaded', () => { //quando o documento for c
 });
 
 document.querySelector('.forms').addEventListener('submit', function(event) {//quando o form for submetido ele vai armazenar os dados no indexedDB
-    event.preventDefault(); //impedir o envio do formulário para não recarregar a página
+    event.preventDefault();
+    
 
     const emailReceita = document.getElementById('email-receita').value;
     const telefoneReceita = document.getElementById('telefone-receita').value;
@@ -37,16 +38,18 @@ document.querySelector('.forms').addEventListener('submit', function(event) {//q
         dbRequest.onupgradeneeded = (event) => {//vai criar o banco de dados e a object store
             const db = event.target.result;
             console.log('Criando ou atualizando banco de dados...');
-            if (!db.objectStoreNames.contains('receitas')) {
+            if (!db.objectStoreNames.contains('receitas')) {//se não existir a object store ele vai criar
                 db.createObjectStore('receitas', { keyPath: 'id', autoIncrement: true });
                 console.log('Object store "receitas" criado');
+            } else {
+                console.log('Object store "receitas" já existe');
             }
         };
 
         dbRequest.onsuccess = (event) => {//se o banco de dados for aberto com sucesso ele vai armazenar os dados
             console.log('Banco de dados aberto com sucesso');
-            const db = event.target.result;
-            const transaction = db.transaction(['receitas'], 'readwrite');
+            const db2 = event.target.result;
+            const transaction = db2.transaction(['receitas'], 'readwrite');
             const objectStore = transaction.objectStore('receitas');
             console.log('Object store "receitas" acessado com sucesso');
             
@@ -112,10 +115,13 @@ document.getElementById('email-receita').addEventListener('input', function(even
 
 function validarEmail(valor) {
     let resultado = '';
+    let errorMessage = '';
     for (let i = 0; i < valor.length; i++) {//vai percorrer o valor digitado e vai verificar se é um caractere válido para um email (só aceita ponto, underscore e hifen)
         let char = valor[i];
         if (/[a-zA-Z0-9@._-]/.test(char)) { //se for um caractere válido ele vai adicionar no resultado mesmo
             resultado += char;
+        } else {
+            errorMessage += 'Por favor, insira um email válido.\n';
         }
     }
 
