@@ -1,7 +1,7 @@
 
 function init() {//função que vai chamar as outras funções para serem executadas quando o documento for carregado
     aplicarMascaraTelefone();
-    indexedDB.deleteDatabase('ReceitasDB');//vai deletar o banco de dados para não ter problemas com a versão
+    //indexedDB.deleteDatabase('ReceitasDB');//vai deletar o banco de dados para não ter problemas com a versão
 }
 
 document.addEventListener('DOMContentLoaded', init);//quando o documento for carregado ele vai chamar a função init
@@ -18,7 +18,8 @@ document.addEventListener('DOMContentLoaded', () => { //quando o documento for c
 
 document.querySelector('.forms').addEventListener('submit', function(event) {//quando o form for submetido ele vai armazenar os dados no indexedDB
     event.preventDefault();
-    
+
+    let errorMessage = '';
 
     const emailReceita = document.getElementById('email-receita').value;
     const telefoneReceita = document.getElementById('telefone-receita').value;
@@ -28,6 +29,37 @@ document.querySelector('.forms').addEventListener('submit', function(event) {//q
 
     const imagemInput = document.getElementById('imagem');//vai pegar o input file da imagem para armazenar no indexedDB
     const imagemFile = imagemInput.files[0];//vai pegar o arquivo de imagem que o user selecionou para armazenar no indexedDB
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;// validação do email todo
+    if (!emailPattern.test(emailReceita)) {
+        errorMessage += 'Por favor, insira um email válido.\n';
+        alert(errorMessage);
+        return;
+    }
+
+    if (telefoneReceita.length < 11) {// validação do tamanho do telefone
+        errorMessage += 'Por favor, insira um telefone válido \n';
+        alert(errorMessage);
+        return;
+    }
+
+    const urlPattern = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*\.[a-z]{2,}$/i;// validação do formato do link
+    if (linkReceita.trim() !== '' && !urlPattern.test(linkReceita)) {
+        errorMessage += 'Fonte da receita deve ser uma URL válida.\n';
+        alert(errorMessage);
+        return;
+    }
+          
+    if (imagemInput && imagemInput.files[0] && imagemInput.files[0].size > 2000000) { // validação do tamanho do arquivo de imagem (colocamos um limite de 2MB)
+        errorMessage += 'O tamanho do arquivo de imagem deve ser menor que 2MB.\n';
+        alert(errorMessage);
+        return;
+    }
+
+    if (!emailReceita.trim() || !telefoneReceita.trim() || !nomeReceita.trim() || !linkReceita.trim() || !receitaPassos.trim() || !imagemFile) {
+        alert('Por favor, preencha todos os campos e selecione uma imagem.');
+        return;
+    }
     
     const reader = new FileReader();//vai ler o arquivo de imagem
     reader.onloadend = () => {
@@ -121,7 +153,8 @@ function validarEmail(valor) {
         if (/[a-zA-Z0-9@._-]/.test(char)) { //se for um caractere válido ele vai adicionar no resultado mesmo
             resultado += char;
         } else {
-            errorMessage += 'Por favor, insira um email válido.\n';
+            errorMessage += 'Por favor, insira um caractere válido.\n';
+            alert(errorMessage);
         }
     }
 
