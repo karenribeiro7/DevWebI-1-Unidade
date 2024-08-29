@@ -51,41 +51,44 @@
 </footer>
 <script> //não conseguimos fazer funcionar no arquivo app.js, mas aqui pega
         if (window.location.pathname.includes('formulario-sucesso.html')) {
-    window.addEventListener('load', () => {
+    window.addEventListener('load', () => {//roda quando a página carregar 
         const dbRequest = indexedDB.open('ReceitasDB', 1);
 
-        dbRequest.onsuccess = (event) => {
+        dbRequest.onsuccess = (event) => {//quando a conexão com o banco de dados for bem sucedida
             const db = event.target.result;
-            const transaction = db.transaction(['receitas'], 'readonly');
-            const objectStore = transaction.objectStore('receitas');
+            const transaction = db.transaction(['receitas'], 'readonly'); //faz uma transação de leitura no banco de dados
+            const objectStore = transaction.objectStore('receitas'); //pega o objeto do banco de dados que contém as receitas
             const request = objectStore.openCursor();
 
-            request.onsuccess = (event) => {
+            request.onsuccess = (event) => {//quando a requisição for bem sucedida ele pega os dados e exibe na tela através do innerHTML
                 const cursor = event.target.result;
                 if (cursor) {
-                    const data = cursor.value;
+                    const data = cursor.value; 
+                    const passosArray = data.passos.split(';'); //separa os passos da receita em um array separando por ';'
+                    const passosList = passosArray.map(passo => `<li>${passo.trim()}</li>`).join(''); //cria uma lista com os passos da receita 
                     document.getElementById('dados-receita').innerHTML = `
                         <p><strong>Email:</strong> ${data.email}</p>
                         <p><strong>Telefone:</strong> ${data.telefone}</p>
                         <p><strong>Nome da Receita:</strong> ${data.nome}</p>
                         <p><strong>Link da Receita:</strong> <a href="${data.link}" target="_blank">${data.link}</a></p>
-                        <p><strong>Receita:</strong> ${data.passos}</p>
+                        <p><strong>Receita:</strong></p>
+                        <ul>${passosList}</ul>
                         <p><strong>Imagem:</strong> <img src="${data.imagem}" alt="Imagem da Receita" style="width:300px; max-width: 80%; height: auto;"></p>
                     `;
-                    cursor.continue();
-                } else {
+                    cursor.continue();//continua a busca por mais dados
+                } else { //quando não houver dados ele exibe uma mensagem
                     if (document.getElementById('dados-receita').innerHTML.trim() === '') {
                         document.getElementById('dados-receita').innerHTML = '<p>Nenhuma receita encontrada.</p>';
                     }
                 }
             };
 
-            request.onerror = (event) => {
+            request.onerror = (event) => {//se houver algum erro na requisição ele exibe no console do navegador
                 console.error('Erro ao recuperar os dados', event);
             };
         };
 
-        dbRequest.onerror = (event) => {
+        dbRequest.onerror = (event) => {//se houver algum erro ao abrir o banco de dados ele exibe no console do navegador
             console.error('Erro ao abrir o banco de dados', event);
         };
     });

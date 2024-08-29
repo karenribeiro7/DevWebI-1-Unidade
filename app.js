@@ -20,7 +20,7 @@ document.querySelector('.forms').addEventListener('submit', function(event) {//q
     event.preventDefault();
 
     let errorMessage = '';
-
+    // vai pegar os valores dos campos do formulário
     const emailReceita = document.getElementById('email-receita').value;
     const telefoneReceita = document.getElementById('telefone-receita').value;
     const nomeReceita = document.getElementById('nome-receita').value;
@@ -56,7 +56,7 @@ document.querySelector('.forms').addEventListener('submit', function(event) {//q
         return;
     }
 
-    if (!emailReceita.trim() || !telefoneReceita.trim() || !nomeReceita.trim() || !linkReceita.trim() || !receitaPassos.trim() || !imagemFile) {
+    if (!emailReceita.trim() || !telefoneReceita.trim() || !nomeReceita.trim() || !linkReceita.trim() || !receitaPassos.trim() || !imagemFile) {// validação dos campos vazios
         alert('Por favor, preencha todos os campos e selecione uma imagem.');
         return;
     }
