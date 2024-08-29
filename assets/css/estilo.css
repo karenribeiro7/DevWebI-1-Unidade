@@ -496,8 +496,12 @@ form textarea {/* configuração dos inputs e textarea do formulario, definindo 
 }
 
 .sugestoes:hover {/* configuração das sugestões ao passar o mouse em cima, mudando a cor de fundo */
-    background-color: #f7c677;
+
     width: 30%;
+}
+
+.sugestoes li:hover{
+    background-color: #f7c677;
 }
 
 label, input, textarea {/* configuração dos elementos do formulario, definindo a margem */
@@ -544,6 +548,10 @@ label, input, textarea {/* configuração dos elementos do formulario, definindo
 
     #dados-receita img {/* definindo tamanho máximo */
         max-width: 100%;
+    }
+
+    #dados-receita a {/* definindo tamanho máximo link */
+        max-width: 80%;
     }
 
 }
